@@ -1,48 +1,69 @@
 import React from 'react'
-import { LuDog, LuCat, } from 'react-icons/lu'
-import { GiChicken } from 'react-icons/gi'
-import { PiHorse } from 'react-icons/pi'
-import { FaCow } from 'react-icons/fa6'
 
 type Props = {}
 
-type flexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse' | 'initial' | 'inherit' | 'unset' | undefined;
-type textAlign = 'left' | 'right' | 'center' | 'justify' | 'initial' | 'inherit' | 'unset' | undefined;
-
 const styles = {
-    container: {
-        backgroundColor: 'orange',
-        border: '1px solid black',
-        display: 'flex',
-        flexDirection: 'column' as flexDirection,
-        justifyContent: 'center',
+    container : {
         width: '200px',
         margin: 'auto',
     },
-    item : {
-        border: '1px solid black',
+    formItem : {
         display: 'flex',
-        flexDirection: 'row' as flexDirection,
+        flexDirection: 'row' as 'row',
+        columnGap: '10px'
+    },
+    checkedResult : {
+        display: 'flex',
+        flexDirection: 'row' as 'row',
         justifyContent: 'center',
+        alignItems: 'center',
         columnGap: '10px',
-        padding: '10px',
+    },
+    result : {
+        marginRight: '10px',
     }
 }
 function Exercise3({}: Props) {
-    const array: string[] = ['dog', 'cat', 'chicken', 'cow', 'horse'];
+    const array: string[] = ['apple', 'banana', 'tea', 'coffee'];
+    const [appleChecked, setAppleChecked] = React.useState(false);
+    const [bananaChecked, setBananaChecked] = React.useState(false);
+    const [teaChecked, setTeaChecked] = React.useState(false);
+    const [coffeeChecked, setCoffeeChecked] = React.useState(false);
   return (
-    <div style={styles.container}>
-        { array.map((item, index) => {
-            return <div key={index} style={styles.item}>
-                { item === 'dog' && <LuDog /> }
-                { item === 'cat' && <LuCat /> }
-                { item === 'chicken' && <GiChicken /> }
-                { item === 'cow' && <FaCow /> }
-                { item === 'horse' && <PiHorse /> }
-                { item }
+    <div>
+        <h2>Your Check List</h2>
+        <form style={styles.container}>
+            { array.map((item, index) => {
+                return <div key={index} style={styles.formItem}>
+                    <div>
+                        <input type="checkbox" id={item} name={item} value={item} onChange={(e) => {
+                        if (e.target.value === 'apple') {
+                            setAppleChecked(!appleChecked);
+                        } else if (e.target.value === 'banana') {
+                            setBananaChecked(!bananaChecked);
+                        } else if (e.target.value === 'tea') {
+                            setTeaChecked(!teaChecked);
+                        } else if (e.target.value === 'coffee') {
+                            setCoffeeChecked(!coffeeChecked);
+                        }
+                    }} />
+                    </div>
+                    <div>
+                        <label htmlFor={item}>{item}</label>
+                    </div>
+                </div>
+            }
+            )}
+        </form>
+        <div style={styles.checkedResult}>
+            <h2>Items has been checked:</h2>
+            <div>
+                { appleChecked && <span style={styles.result}>Apple</span> }
+                { bananaChecked && <span style={styles.result}>Banana</span> }
+                { teaChecked && <span style={styles.result}>Tea</span> }
+                { coffeeChecked && <span style={styles.result}>Coffee</span> }
             </div>
-        })
-        }
+        </div>
     </div>
   )
 }
