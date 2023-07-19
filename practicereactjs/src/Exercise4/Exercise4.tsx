@@ -1,6 +1,6 @@
 import React from "react";
 import NavigationBar from "../components/NavigationBar";
-
+import Button from "@mui/material/Button";
 type Props = {};
 
 const Exercise4 = (props: Props) => {
@@ -13,9 +13,9 @@ const Exercise4 = (props: Props) => {
       <NavigationBar />
       <div>
         <h2>Button has been clicked: {count} times</h2>
-        <button type="button" onClick={handleClick}>
+        <Button variant="contained" onClick={handleClick}>
           Click me
-        </button>
+        </Button>
       </div>
     </div>
   );

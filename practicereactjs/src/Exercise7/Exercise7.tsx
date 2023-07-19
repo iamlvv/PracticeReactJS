@@ -1,18 +1,10 @@
 import React from "react";
 import NavigationBar from "../components/NavigationBar";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
 type Props = {};
 
-const styles = {
-  inputField: {
-    padding: "10px",
-    border: "1px solid #D9D9D9",
-    borderRadius: "5px",
-    width: "300px",
-    margin: "auto",
-    outline: "none",
-  },
-};
 const Exercise7 = (props: Props) => {
   const array: string[] = [
     "Apple",
@@ -45,20 +37,32 @@ const Exercise7 = (props: Props) => {
       <NavigationBar />
       <div>
         <div>
-          <label>Search</label>
-          <input
-            type="text"
-            placeholder="Search"
-            value={search || ""}
-            onChange={handleSearch}
-            style={styles.inputField}
-          />
+          <Box
+            component="form"
+            sx={{
+              "& > :not(style)": { m: 1, width: "25ch" },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField
+              id="outlined-basic"
+              label="Search"
+              variant="outlined"
+              value={search || ""}
+              onChange={handleSearch}
+            />
+          </Box>
         </div>
         <div>
           <h2>Result</h2>
-          {filteredResult.map((item, index) => {
-            return <div key={index}>{item}</div>;
-          })}
+          {filteredResult.length !== 0 ? (
+            filteredResult.map((item, index) => {
+              return <div key={index}>{item}</div>;
+            })
+          ) : (
+            <div style={{ color: "red" }}>No result.</div>
+          )}
         </div>
       </div>
     </div>

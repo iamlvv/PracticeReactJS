@@ -1,5 +1,8 @@
 import React from "react";
 import NavigationBar from "../components/NavigationBar";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 type Props = {};
 
@@ -35,6 +38,10 @@ const Exercise5 = (props: Props) => {
   const [lastName, setLastName] = React.useState("");
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    if (firstName === "" || lastName === "") {
+      alert("Please enter your first name and last name");
+      return;
+    }
     alert("Hello, " + firstName + " " + lastName);
   };
   return (
@@ -43,29 +50,45 @@ const Exercise5 = (props: Props) => {
       <div>
         <form onSubmit={handleSubmit} style={styles.form}>
           <div>
-            <input
-              type="text"
-              placeholder="First Name"
-              value={firstName || ""}
-              onChange={(e) => setFirstName(e.target.value)}
-              style={styles.inputField}
-              required
-            />
+            <Box
+              component="form"
+              sx={{
+                "& > :not(style)": { m: 1, width: "25ch" },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                id="outlined-basic"
+                label="First Name"
+                variant="outlined"
+                value={firstName || ""}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </Box>
           </div>
           <div>
-            <input
-              type="text"
-              placeholder="Last Name"
-              value={lastName || ""}
-              onChange={(e) => setLastName(e.target.value)}
-              style={styles.inputField}
-              required
-            />
+            <Box
+              component="form"
+              sx={{
+                "& > :not(style)": { m: 1, width: "25ch" },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                id="outlined-basic"
+                label="Last Name"
+                variant="outlined"
+                value={lastName || ""}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </Box>
           </div>
           <div>
-            <button type="submit" style={styles.button}>
+            <Button variant="contained" type="submit">
               Greet me
-            </button>
+            </Button>
           </div>
         </form>
       </div>

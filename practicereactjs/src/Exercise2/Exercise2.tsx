@@ -28,7 +28,6 @@ type textAlign =
 
 const styles = {
   container: {
-    backgroundColor: "orange",
     border: "1px solid black",
     display: "flex",
     flexDirection: "column" as flexDirection,
