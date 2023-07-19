@@ -1,4 +1,5 @@
 import React from "react";
+import NavigationBar from "../components/NavigationBar";
 
 type Props = {};
 
@@ -41,21 +42,24 @@ const Exercise7 = (props: Props) => {
 
   return (
     <div>
+      <NavigationBar />
       <div>
-        <label>Search</label>
-        <input
-          type="text"
-          placeholder="Search"
-          value={search || ""}
-          onChange={handleSearch}
-          style={styles.inputField}
-        />
-      </div>
-      <div>
-        <h2>Result</h2>
-        {filteredResult.map((item, index) => {
-          return <div key={index}>{item}</div>;
-        })}
+        <div>
+          <label>Search</label>
+          <input
+            type="text"
+            placeholder="Search"
+            value={search || ""}
+            onChange={handleSearch}
+            style={styles.inputField}
+          />
+        </div>
+        <div>
+          <h2>Result</h2>
+          {filteredResult.map((item, index) => {
+            return <div key={index}>{item}</div>;
+          })}
+        </div>
       </div>
     </div>
   );

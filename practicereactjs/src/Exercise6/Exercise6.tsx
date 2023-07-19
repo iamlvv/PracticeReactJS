@@ -1,5 +1,6 @@
 import React from "react";
 import inputData from "./input.json";
+import NavigationBar from "../components/NavigationBar";
 type Props = {};
 
 const styles = {
@@ -28,15 +29,18 @@ const styles = {
 };
 const Exercise6 = (props: Props) => {
   return (
-    <div style={styles.container}>
-      {inputData.map((item, index) => {
-        return (
-          <div key={item.id} style={styles.card}>
-            <h1>{item.setup}</h1>
-            <p>{item.punchline}</p>
-          </div>
-        );
-      })}
+    <div>
+      <NavigationBar />
+      <div style={styles.container}>
+        {inputData.map((item, index) => {
+          return (
+            <div key={item.id} style={styles.card}>
+              <h1>{item.setup}</h1>
+              <p>{item.punchline}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

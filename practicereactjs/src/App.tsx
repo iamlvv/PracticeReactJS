@@ -8,6 +8,9 @@ import Exercise4 from "./Exercise4/Exercise4";
 import Exercise5 from "./Exercise5/Exercise5";
 import Exercise6 from "./Exercise6/Exercise6";
 import Exercise7 from "./Exercise7/Exercise7";
+import Exercise8 from "./Exercise8/Exercise8";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Exercise9 from "./Exercise9/Exercise9";
 
 const styles = {
   heading: {
@@ -19,21 +22,21 @@ const styles = {
 };
 function App() {
   return (
-    <div className="App" style={styles.container}>
-      <h1 style={styles.heading}>Exercise 1</h1>
-      <Exercise1 />
-      <h1 style={styles.heading}>Exercise 2</h1>
-      <Exercise2 />
-      <h1 style={styles.heading}>Exercise 3</h1>
-      <Exercise3 />
-      <h1 style={styles.heading}>Exercise 4</h1>
-      <Exercise4 />
-      <h1 style={styles.heading}>Exercise 5</h1>
-      <Exercise5 />
-      <h1 style={styles.heading}>Exercise 6</h1>
-      <Exercise6 />
-      <h1 style={styles.heading}>Exercise 7</h1>
-      <Exercise7 />
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Exercise1 />} />
+          <Route path="/exercise1" element={<Exercise1 />} />
+          <Route path="/exercise2" element={<Exercise2 />} />
+          <Route path="/exercise3" element={<Exercise3 />} />
+          <Route path="/exercise4" element={<Exercise4 />} />
+          <Route path="/exercise5" element={<Exercise5 />} />
+          <Route path="/exercise6" element={<Exercise6 />} />
+          <Route path="/exercise7" element={<Exercise7 />} />
+          <Route path="/exercise8" element={<Exercise8 />} />
+          <Route path="/exercise9" element={<Exercise9 />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

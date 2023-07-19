@@ -1,4 +1,5 @@
 import React from "react";
+import NavigationBar from "../components/NavigationBar";
 
 type Props = {};
 
@@ -26,6 +27,7 @@ const styles = {
     color: "white",
     width: "322px",
     cursor: "pointer",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
   },
 };
 const Exercise5 = (props: Props) => {
@@ -37,33 +39,36 @@ const Exercise5 = (props: Props) => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <div>
-          <input
-            type="text"
-            placeholder="First Name"
-            value={firstName || ""}
-            onChange={(e) => setFirstName(e.target.value)}
-            style={styles.inputField}
-            required
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Last Name"
-            value={lastName || ""}
-            onChange={(e) => setLastName(e.target.value)}
-            style={styles.inputField}
-            required
-          />
-        </div>
-        <div>
-          <button type="submit" style={styles.button}>
-            Greet me
-          </button>
-        </div>
-      </form>
+      <NavigationBar />
+      <div>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <div>
+            <input
+              type="text"
+              placeholder="First Name"
+              value={firstName || ""}
+              onChange={(e) => setFirstName(e.target.value)}
+              style={styles.inputField}
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Last Name"
+              value={lastName || ""}
+              onChange={(e) => setLastName(e.target.value)}
+              style={styles.inputField}
+              required
+            />
+          </div>
+          <div>
+            <button type="submit" style={styles.button}>
+              Greet me
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
