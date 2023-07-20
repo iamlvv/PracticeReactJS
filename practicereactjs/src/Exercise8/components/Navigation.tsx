@@ -32,6 +32,8 @@ const styles = {
     height: "auto",
     opacity: 0.5,
     cursor: "pointer",
+    border: "2px solid #f5f5f5",
+    borderRadius: "10px",
   },
 };
 function Navigation(props: Props) {

@@ -3,6 +3,7 @@ import NavigationBar from "../components/NavigationBar";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { removeSpaces } from "./inputActions";
 
 type Props = {};
 
@@ -42,7 +43,7 @@ const Exercise5 = (props: Props) => {
       alert("Please enter your first name and last name");
       return;
     }
-    alert("Hello, " + firstName + " " + lastName);
+    alert("Hello, " + removeSpaces(firstName) + " " + removeSpaces(lastName));
   };
   return (
     <div>

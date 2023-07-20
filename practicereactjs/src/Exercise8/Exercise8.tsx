@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import NavigationBar from "../components/NavigationBar";
-import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import SlidesList from "./components/SlidesList";
 import Navigation from "./components/Navigation";
 
@@ -65,7 +65,7 @@ const Exercise8 = (props: Props) => {
       <NavigationBar />
       <div style={styles.container}>
         <div>
-          <BsArrowLeftCircle style={styles.arrow} onClick={previousSlide} />
+          <IoIosArrowBack style={styles.arrow} onClick={previousSlide} />
         </div>
         <div>
           <div onClick={() => setPauseAutoSlide(true)}>
@@ -83,7 +83,7 @@ const Exercise8 = (props: Props) => {
           />
         </div>
         <div>
-          <BsArrowRightCircle style={styles.arrow} onClick={nextSlide} />
+          <IoIosArrowForward style={styles.arrow} onClick={nextSlide} />
         </div>
       </div>
     </div>

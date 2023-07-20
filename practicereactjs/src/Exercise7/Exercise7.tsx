@@ -23,7 +23,9 @@ const Exercise7 = (props: Props) => {
     const searchWord = e.target.value;
     setSearch(searchWord);
     const filtered = array.filter((item) => {
-      return item.toLowerCase().includes(searchWord.toLowerCase());
+      return item
+        .toLowerCase()
+        .includes(searchWord.replaceAll(" ", "").toLowerCase());
     });
     if (searchWord !== "") {
       setFilteredResult(filtered);
